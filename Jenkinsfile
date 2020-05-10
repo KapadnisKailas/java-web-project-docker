@@ -7,14 +7,14 @@ pipeline{
 			}
 			post{
 				success{
-					echo 'Now archiving the Artifacts...'
+					echo "Now archiving the Artifacts..."
 					archiveArtifacts artifacts: '**/*.war'
 				}
 			}		
 		}
 		stage('Creating Docker Image'){
 			steps{
-				sh 'docker build . -t javawebproject:${env.BUILD_ID}'
+				sh 'docker build -f . -t javawebproject:${env.BUILD_ID}'
 			}
 		}
 	}
