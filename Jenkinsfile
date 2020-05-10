@@ -15,7 +15,7 @@ pipeline{
 		}
 		stage('Creating Docker Image'){
 			steps{
-				sh 'docker build -f . -t javawebproject:${env.BUILD_ID}'
+				sh 'docker build . -t javawebproject:1.0'
 			}
 		}
 	}
